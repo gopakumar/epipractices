@@ -4,11 +4,23 @@ from test_framework.test_failure import TestFailure
 
 def int_to_string(x):
     # TODO - you fill in here.
-    return ''
+    mystr = []
+    while True:
+        mystr.append(( chr(ord('0')+x%10)))
+        x//=10
+        if x == 0:
+            break
+    mystr.reverse()
+    result = ''.join(mystr)
+    #print (result)
+    print (string.digits.index('0'))
+    return result
 
 
 def string_to_int(s):
     # TODO - you fill in here.
+    for x in range(len(s)):
+        print (s[x])
     return 0
 
 
