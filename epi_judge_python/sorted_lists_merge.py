@@ -1,9 +1,26 @@
 from test_framework import generic_test
+from list_node import ListNode
 
 
 def merge_two_sorted_lists(L1, L2):
     # TODO - you fill in here.
-    return None
+    head = tail = ListNode()
+    while (L1 != None and L2 !=None):
+        #print (L1.data,L2.data)
+        if L1.data< L2.data:
+            tail.next = L1
+            L1= L1.next
+        else:
+            tail.next = L2
+            L2= L2.next
+        tail = tail.next
+    if(L1):
+        tail.next = L1
+    elif(L2):
+        tail.next = L2
+   
+#    print(dir(L1))
+    return head.next
 
 
 if __name__ == '__main__':
