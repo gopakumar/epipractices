@@ -1,9 +1,9 @@
 from test_framework import generic_test
-
+import heapq
 
 def merge_sorted_arrays(sorted_arrays):
     # TODO - you fill in here.
-    return []
+    return list(heapq.merge(*sorted_arrays))
 
 
 if __name__ == '__main__':
