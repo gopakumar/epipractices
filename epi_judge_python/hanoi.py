@@ -6,10 +6,37 @@ from test_framework.test_utils import enable_executor_hook
 
 NUM_PEGS = 3
 
-
+result = list()
 def compute_tower_hanoi(num_rings):
     # TODO - you fill in here.
-    return []
+    #print("\n")
+    global result
+    result = list()
+    #print (result)
+    if(1 == num_rings):
+        result.append([0,1])
+    else:
+        source =0
+        dest=1
+        temp = 2
+        n= num_rings
+        helper(source,dest,temp,num_rings)
+        
+    #print (result)
+    return result
+
+def helper(source,dest,temp,n):
+    global result
+    if (n >  2):
+        helper(source,temp,dest,n-1)
+        result.append([source,dest])
+        helper(temp,dest,source,n-1)
+    elif(n==2):
+        result.append([source,temp])
+        result.append([source,dest])
+        result.append([temp,dest])
+    #print(result)
+
 
 
 @enable_executor_hook
