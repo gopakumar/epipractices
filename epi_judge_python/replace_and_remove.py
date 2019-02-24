@@ -5,8 +5,36 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def replace_and_remove(size, s):
+    #print (size,s)
+    i = size-1
+    ri = len(s)-1
+    while (i>=0):
+        #print (s[i])
+        if (s[i] == 'b'):
+            i = i-1
+        elif (s[i]== 'a'):
+            s[ri] = 'd'
+            ri= ri-1
+            s[ri] = 'd'
+            ri= ri-1
+            i=i-1
+        elif(s[i] == 'c'):
+            s[ri] = 'c'
+            ri= ri-1
+            i=i-1
+        elif(s[i] == 'd'):
+            s[ri] = 'd'
+            ri= ri-1
+            i=i-1
+        else:
+            i=i-1
     # TODO - you fill in here.
-    return 0
+    result = s[ri+1::]
+    s = result
+    #print(s[ri+1::])
+    print (result)
+    print(s)
+    return len(result)
 
 
 @enable_executor_hook
