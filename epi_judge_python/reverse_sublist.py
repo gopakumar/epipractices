@@ -4,20 +4,32 @@ from list_node import ListNode
 
 def reverse_sublist(L, start, finish):
 
-    head = temp_head = ListNode(0,L)
-    for _ in range(1,start):
-        temp_head = temp_head.next
-       
-    last_node = temp_head.next
-    for _ in range (finish-start):
-     
+    temp = head =  ListNode(0,L)
+    count =1
+    if (start == 0):
+        return L
+    
+    while (head != None):
+        if(start == count):
+            break
+        count = count+1
+        head = head.next
+    #head is the starting node
+    endnode = head.next
 
-        temp = last_node.next
-        last_node.next = temp.next
-        temp.next = temp_head.next
-        temp_head.next = temp
+    while(start != finish):
         
-    return head.next
+        firstlink = head.next
+        lastlink = endnode.next.next
+        #print(firstlink.data)
+        #print(endnode.next.data)
+        #print(lastlink.data)
+        head.next = endnode.next
+        head.next.next = firstlink
+        endnode.next = lastlink
+        start = start+1
+
+    return temp.next
 
 if __name__ == '__main__':
     exit(
