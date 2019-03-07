@@ -28,7 +28,6 @@ def reverse_sublist(L, start, finish):
         head.next.next = firstlink
         endnode.next = lastlink
         start = start+1
-
     return temp.next
 
 if __name__ == '__main__':

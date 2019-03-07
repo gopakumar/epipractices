@@ -1,4 +1,5 @@
 import functools
+#import pdb
 
 from test_framework import generic_test
 from test_framework.binary_tree_utils import must_find_node, strip_parent_link
@@ -6,9 +7,40 @@ from test_framework.test_failure import TestFailure
 from test_framework.test_utils import enable_executor_hook
 
 
+class solution():
+    def __init__(self):
+        self.result = None
+
+    def findsolution(self,node,data0,data1):
+        #pdb.set_trace()
+        if (node == None):
+            return None
+        if (node.data == data0 or node.data == data1):
+            return node
+        leftdata = self.findsolution(node.left,data0,data1)
+        rightdata = self.findsolution(node.right,data0,data1)
+        if(leftdata == None and rightdata == None):
+            return None
+        if(leftdata !=None and rightdata != None):
+            return node
+        else:
+            return (leftdata or rightdata)
+
+
+    def inorder(self,tree):
+        if(tree):
+            print(tree.data)
+            self.inorder(tree.left)
+            self.inorder(tree.right)
+                
 def lca(tree, node0, node1):
     # TODO - you fill in here.
-    return None
+    #pdb.set_trace()
+    s= solution()
+    #s.inorder(tree)
+    return s.findsolution(tree,node0.data,node1.data)
+    
+    
 
 
 @enable_executor_hook
