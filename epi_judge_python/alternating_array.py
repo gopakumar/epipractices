@@ -1,13 +1,45 @@
 import functools
-
 from test_framework import generic_test
 from test_framework.test_failure import PropertyName, TestFailure
 from test_framework.test_utils import enable_executor_hook
+import pdb
 
+class solution ():
+    def __init__(self):
+        self.result = None
+    def findsolution(self,A):
+        #print("\n")
+        #print (A)
+        A.sort()
+        #sorted(A)
+        #for i in range(len(A)):
+            #print (i,A[i])
+        #for i,val in enumerate(sorted(A),1):
+        for i in range (1,len(A)):   
+            #print(i,A[i])
+            #pdb.set_trace()
+            if (i%2 == 0): # index is even
+                #print (i,"inside ")
+                A[i],A[i-1] = A[i-1],A[i]
+                
+                
+
+            
+            
+            
+
+            
+        
 
 def rearrange(A):
     # TODO - you fill in here.
-    return
+    s = solution()
+    if(len(A) == 0):
+        return A
+    
+    s.findsolution(A)
+
+    return A
 
 
 @enable_executor_hook
