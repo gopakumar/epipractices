@@ -1,8 +1,18 @@
 from test_framework import generic_test
 
 
+class solution ():
+    def __init__ (self):
+        self.result = None
+
+    def helper(self,s):
+        print (s)
+
+        
 def is_well_formed(s):
     # TODO - you fill in here.
+    r = solution()
+    r.helper(s)
     return True
 
 
