@@ -16,6 +16,17 @@ class solution():
             if(self.count == k):
                 self.result = node
             self.helper(node.right,k)
+    def helperk(self,node,k):
+        #pdb.set_trace()
+        if(node):
+            if((self.count+node.size) < k):
+                self.count = self.count+node.size
+            else:
+                self.helperk(node.left,k)
+                self.count = self.count+1
+                if(self.count == k):
+                    self.result = node
+                self.helperk(node.right,k)
         
             
                 
@@ -33,7 +44,8 @@ def find_kth_node_binary_tree(tree, k):
     
     # TODO - you fill in here.
     r = solution()
-    r.helper(tree,k)
+    #r.helper(tree,k)
+    r.helperk(tree,k)
     return r.result
 
 
